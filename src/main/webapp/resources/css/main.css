@@ -1,0 +1,290 @@
+body {
+// background-color: #f2f2f2;
+    font-weight: 300;
+    font-size: 16px;
+    color: #555;
+
+    -webkit-font-smoothing: antialiased;
+    -webkit-overflow-scrolling: touch;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 300;
+    color: #333;
+}
+
+p {
+    line-height: 28px;
+    margin-bottom: 25px;
+}
+
+.centered {
+    text-align: center;
+}
+
+a {
+    color: #f85c37;
+}
+
+a:hover, a:focus {
+    color: #7b7b7b;
+    text-decoration: none;
+    outline: 0;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid black;
+    margin: 0 auto;
+    padding: 0;
+    padding-bottom: 10px;
+}
+
+.navbar {
+    font-weight: 800;
+    font-size: 14px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.navbar-inverse {
+    background: #000000;
+    border-color: #000000;
+    padding: 10px 0 5px;
+}
+
+.navbar-inverse .navbar-nav > .active > a {
+    background-color: #ff7878;
+}
+
+.navbar-inverse .navbar-brand {
+    color: #999;
+    font-weight: bolder;
+    font-size: 22px;
+    letter-spacing: 1px;
+}
+
+#navbar-brand img {
+    width: 40px;
+    display: inline;
+}
+
+#headerwrap {
+    background: url(/resources/images/headerwrap2.jpg) no-repeat center top;
+// margin-top: -10px;
+    padding-top: 80px;
+    text-align: center;
+    background-attachment: relative;
+    background-position: center center;
+    min-height: 100%;
+    width: 100%;
+
+    background-size: 100%;
+
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#headerwrap h1 {
+    margin-top: 100px;
+}
+
+#headerwrap h1 a {
+    color: white;
+    font-size: 50px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border-bottom: 3px solid transparent;
+    transition: all ease-in-out 0.5s;
+}
+
+#headerwrap h1 a:hover {
+    border-color: white;
+//transition: 0.9s;
+}
+
+#headerwrap h4 {
+    color: white;
+    font-size: 18px;
+    letter-spacing: 1px;
+// text-transform: uppercase;
+}
+
+#tops-and-new {
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+.tops-and-new-name {
+    color: black;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+#tops-and-new a:hover {
+    background-color: #d80000;
+}
+
+.link-content {
+    border-bottom: 2px solid transparent;
+    transition: all ease-in-out 0.4s;
+}
+
+.link-content:hover {
+    color: #d80000;
+    border-color: #d80000;
+}
+
+#tops-and-new .photo img {
+    display: block;
+    width: 100%;
+    height: 500px
+}
+
+.wrap {
+    padding-top: 30px;
+
+}
+
+.wrap h4 {
+    font-size: 28px;
+}
+
+#dg {
+    background: #e0e0e0;
+    padding-top: 70px;
+    padding-bottom: 70px;
+    text-align: center;
+}
+
+#dg h4 {
+    font-size: 35px;
+}
+.tilt img{
+    max-width: 100%;
+    max-height: 300px;
+}
+
+.tilt {
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.tilt:hover {
+    -webkit-transform: rotate(-10deg);
+    -moz-transform: rotate(-10deg);
+    -o-transform: rotate(-10deg);
+    -ms-transform: rotate(-10deg);
+    transform: rotate(-10deg);
+}
+
+.wb {
+    padding-top: 35px;
+    margin-bottom: 20px;
+}
+
+.wb h4 {
+    font-size: 35px;
+}
+
+.wb img {
+    max-height: 700px
+}
+
+#lg {
+    background: #ebebeb;
+    padding-top: 70px;
+    padding-bottom: 70px;
+    text-align: center;
+}
+
+#lg h4 {
+    font-size: 45px;
+    margin-bottom: 50px;
+}
+
+#lg i:hover {
+    color: #ff7878;
+    transition: 0.4s;
+}
+
+#footer {
+    padding-top: 15px;
+    padding-bottom: 40px;
+}
+
+#footer {
+    color: #999;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+#footer a {
+    color: #999;
+    border-bottom: 2px solid transparent;
+    transition: all ease-in-out 0.2s;
+}
+
+#footer a:hover {
+    color: #d80000;
+    border-color: #d80000;
+}
+
+#contacts {
+// background: #2d2d2d;
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+
+#contacts a {
+    color: black;
+    letter-spacing: 1px;
+    border-bottom: 2px solid transparent;
+    transition: all ease-in-out 0.2s;
+    font-size: 15px;
+    font-weight: 600;
+    margin-right: 14px;
+}
+
+
+
+#contacts a:hover {
+    color: #d80000;
+    border-color: #d80000;
+    transition: 0.6s;
+}
+
+.fa-stack {
+    position: relative;
+    top: -25px;
+    left: 10px;
+    font-size: 9px;
+    color: #d80000;
+}
+
+.bag-size {
+    color: white;
+}
+
+.navbar-bag {
+    width: 45px;
+    height: 44px;
+}
+
+#navbar-brand {
+    color: white;
+    border-bottom: 1px solid transparent;
+    transition: all ease-in-out 0.4s;
+}
+
+#navbar-brand:hover {
+//color: #d80000;
+    border-color: white;
+}

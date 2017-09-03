@@ -1,0 +1,51 @@
+.header {
+    margin-bottom: 20px;
+    color: black;
+    letter-spacing: 1px;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+/*.carousel-inner > .item > img {*/
+    /*position: absolute;*/
+    /*top: 0;*/
+    /*left: 0;*/
+    /*min-width: 50%;*/
+    /*height: 100%;*/
+/*}*/
+
+.carousel {
+    height: 70%;
+    margin-top: 60px;
+}
+
+.carousel .item {
+    height: 100%;
+    background-color: #777;
+}
+
+.carousel .item img {
+    width: 35%;
+    margin-left: 32.5%;
+}
+
+.carousel .carousel-control i {
+    margin-top:  135%;
+}
+
+.item-reference {
+    color: black;
+    transition: all ease-in-out 0.3s;
+}
+
+.item-reference:hover {
+    color: #d80000;
+}
+
+.item .image {
+    border: 1px solid rgb(212,212,212);
+}
+
+.header {
+    margin: 30px 0 20px;
+}
