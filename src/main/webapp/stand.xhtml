@@ -3,9 +3,7 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:c="http://java.sun.com/jsp/jstl/core">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 <h:head>
     <title>Sales Stand</title>
     <h:outputStylesheet name = "css/bootstrap.css"/>
@@ -67,17 +65,20 @@
     <div class="main-content container">
         <div class="row centered">
             <div class="header col-lg-12">Top sales</div>
-            <ui:repeat value="#{productsBean.topProducts}" var="product">
+            <ui:repeat value="#{productList.topProducts}" var="product">
                 <div class="col-lg-3 item">
                     <a href="http://localhost:8080/catalog/#{product.id}" class="item-reference">
                         <div class="image">
-                            <img src="http://localhost:8080/image/#{product.name}" alt="#{product.name}"/>
+                            <img src="http://localhost:8080/image/#{product.id}" alt="#{product.name}"/>
                         </div>
                         <div class="item-name">
                             #{product.name}
                         </div>
                         <div class="item-cost">
                             #{product.price}
+                        </div>
+                        <div class="item-sales-number">
+                            #{product.numberOfSales}
                         </div>
                     </a>
                 </div>

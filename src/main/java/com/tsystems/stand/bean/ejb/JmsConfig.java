@@ -1,8 +1,8 @@
-package com.tsystems.stand.jms.config;
+package com.tsystems.stand.bean.ejb;
 
 
-import com.tsystems.stand.ejb.TopProductsBean;
-import com.tsystems.stand.jms.listener.Receiver;
+import com.tsystems.stand.jms.listener.MessageListenerImpl;
+import org.apache.log4j.Logger;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
@@ -15,21 +15,46 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import java.util.Properties;
 
+/**
+ * Current class exists to configure JMS connection(ActiveMQ server).
+ */
 @Singleton
 @Startup
-public class JmsConfigBean {
+public class JmsConfig {
 
+    /**
+     * Connection with the ActiveMQ server
+     */
     private QueueConnection connection;
+    /**
+     * ActiveMQ session.
+     */
     private QueueSession session;
+    /**
+     * Receiver object that gets every message from JMS queue. Within Shop application
+     * and Stand application the name of this queue is 'advertising.stand'.
+     */
     private QueueReceiver receiver;
 
+    /**
+     * Injected topProducts singleton bean. It stores list of the top products
+     * received from Shop application by https://localhost:8080/advertising/stand URL.
+     */
     @EJB
-    TopProductsBean topProductsBean;
+    TopProducts topProducts;
 
+    /**
+     * Apache log4j object is used to logging all important info.
+     */
+    private static final Logger log = Logger.getLogger(JmsConfig.class);
+
+
+    /**
+     * Initializer of current bean.
+     */
     @PostConstruct
     private void startConnection() throws NamingException, JMSException {
         Properties props = new Properties();
-//        Hashtable<String, String> props = new Hashtable<String, String>();
         props.put("java.naming.factory.initial", "org.apache.activemq.jndi.ActiveMQInitialContextFactory");
         props.put("java.naming.provider.url", "tcp://localhost:61616");
         props.put("queue.js-queue", "advertising.stand");
@@ -45,23 +70,27 @@ public class JmsConfigBean {
         session = connection.createQueueSession(false, QueueSession.AUTO_ACKNOWLEDGE);
 
         receiver = session.createReceiver(queue);
-        Receiver r = new Receiver();
-        r.setTopProductsBean(topProductsBean);
-        receiver.setMessageListener(r);
+        MessageListenerImpl listener = new MessageListenerImpl();
+        listener.setTopProducts(topProducts);
+        receiver.setMessageListener(listener);
+
+        //log
+        log.info("Connection with JMS server has set.");
     }
 
-    public TopProductsBean getTopProductsBean() {
-        return topProductsBean;
-    }
-
+    /**
+     * Method close all connections to prevent memory leaks.
+     */
     @PreDestroy
     private void closeConnection() {
         try {
             receiver.close();
             session.close();
             connection.close();
+            //log
+            log.info("All connections with JMS server was successfully closed.");
         } catch (JMSException e) {
-            e.printStackTrace();
+            log.error("Something was wrong during closing connection with JMS server.", e);
         }
     }
 
